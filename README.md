@@ -1,11 +1,11 @@
-#vsPlayAudio v0.1.0
+# vsPlayAudio v0.1.0
 
-##小体积美观的音乐播放器
-##mini music player
+## 小体积美观的音乐播放器
+## mini music player
 
-##简介
+## 简介
 1.暂时只支持网易云音乐之后添加本地音频
 
 2.暂时不支持手机端（未测试）
 
-##使用方法
+## 使用方法
