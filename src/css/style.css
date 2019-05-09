@@ -42,6 +42,7 @@
 #vsPlayAudio .vsPlayAudio-control .vsPlayAudio-control-top #vsPlayAudio-title {
     margin: 0;
     height: 24px;
+    line-height: 24px;
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
