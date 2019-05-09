@@ -43,5 +43,5 @@ new vsPlayAudio({
     },
     random: false//随机播放
 });
-</body>
+</body> 
 ```
