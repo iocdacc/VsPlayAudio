@@ -69,6 +69,7 @@
     overflow: hidden;
     position: relative;
     border-radius: 3px;
+    float: left;
 }
 
 #vsPlayAudio .vsPlayAudio-percent .vsPlayAudio-line-loading {
