@@ -4,6 +4,8 @@
 100% {transform:rotate(360deg);}
 }
 
+#vsPlayAudio *{font-family:"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;-webkit-text-size-adjust:100%;box-sizing: content-box;line-height: 1;}
+
 #vsPlayAudio .vsPlayAudio-control {
     position: absolute;
     top: 0;
@@ -45,7 +47,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
-    width: 99px;
 }
 
 #vsPlayAudio .vsPlayAudio-control .vsPlayAudio-control-top #vsPlayAudio-singer {
