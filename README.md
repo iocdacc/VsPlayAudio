@@ -8,6 +8,9 @@ mini music player
 2.暂时不支持手机端（未测试）
 
 ## 演示地址
+
+![](https://github.com/iocdacc/vsPlayAudio/blob/master/demo.PNG?raw=true)
+
 http://blog.pzroot.com/vsPlayAudio/src/
 
 ## 使用方法
