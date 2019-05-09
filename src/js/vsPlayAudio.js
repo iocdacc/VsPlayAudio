@@ -128,7 +128,7 @@ import "../css/style.css";
         }
 
         coverImg.src = imgMusic;
-
+        let playFirst;
         if (vsOption.music.type === 'cloud') {
             m.volume = 0;
             Tool.ajax({
@@ -141,7 +141,7 @@ import "../css/style.css";
                     vsthis.nowAudio = 0;
                     vsthis.music = JSON.parse(data);
                     vsthis.inHtml();
-
+                    playFirst = true;
                     if (vsOption.random) {
                         vsthis.init(vsthis.music[Tool.randomNum(0,(vsthis.music.length - +1))]);
                     }else{
@@ -232,6 +232,7 @@ import "../css/style.css";
         }
 
         vsthis.play = function() {
+            playFirst = false;
             vsthis.onchangeVolume("play");
             play.style.display = 'none';
             pause.style.display = 'block';
@@ -259,7 +260,9 @@ import "../css/style.css";
                     }
                 }
             }
-            vsthis.play();
+            if (!playFirst || vsthis.autoPlay) {
+                vsthis.play();
+            }
         }
 
         vsthis.clickAudio = function() {
