@@ -141,7 +141,13 @@ import "../css/style.css";
                     vsthis.nowAudio = 0;
                     vsthis.music = JSON.parse(data);
                     vsthis.inHtml();
-                    vsthis.random ? vsthis.next() : vsthis.init();
+
+                    if (vsOption.random) {
+                        vsthis.init(vsthis.music[Tool.randomNum(0,(vsthis.music.length - +1))]);
+                    }else{
+                        vsthis.init();
+                    }
+                    
                     m.volume = .8;
                     coverVolumeLine.style.width = Tool.percentFormat(m.volume);
                 },
