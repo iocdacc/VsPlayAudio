@@ -1,0 +1,22 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+html{font-family:"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;-webkit-text-size-adjust:100%;font-size:12px;}
+a{text-decoration:none;color:#000;}
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+em{font-style:normal}
+ul{font-size: 0px;}
+li{list-style:none;font-size: 12px;}
+img{border:0;vertical-align:middle}
+img{max-width:100%;max-height:100%;display: block;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+::selection{background:#c1e4ff;}
+*:focus{outline:none;}
+body{font-size:100%;color: #000;}
+.clear:after,.clear:before{content:"";display:table;}
+.clear:after{clear:both;}
+.right{float:right;}
+.left{float:left;}
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
