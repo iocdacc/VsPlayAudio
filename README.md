@@ -1,7 +1,7 @@
 # vsPlayAudio v0.1.0
 
-## 小体积美观的音乐播放器
-## mini music player
+小体积美观的音乐播放器
+mini music player
 
 ## 简介
 1.暂时只支持网易云音乐之后添加本地音频
