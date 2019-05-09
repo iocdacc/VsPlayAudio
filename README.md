@@ -16,18 +16,32 @@ http://blog.pzroot.com/vsPlayAudio/src/
 
 ## 使用方法
 ```
+<head>
+
+<script src="./dist/vsPlayAudio.min.js"></script>
+
+</head>
+<body>
+
+...
+
+<div id="vsPlayAudio"></div>
+
+...
+
 new vsPlayAudio({
     element: "vsPlayAudio",
     autoPlay: false,//自动播放
     music: {
-        //必填,音乐配置
+        //必需项,音乐配置
         type: 'cloud',
-        //必填,音乐来源暂时只支持网易云音乐，之后添加更多
+        //必需项,网易云方式指定填'cloud'
         source: 2778782119
-        //必填,网易云音乐歌单id
+        //必需项,网易云音乐歌单id
         //登录网易云网页版,在网页地址中拿到
-        //playlist?id=317921676
+        // ... playlist?id=317921676
     },
     random: false//随机播放
 });
+</body>
 ```
