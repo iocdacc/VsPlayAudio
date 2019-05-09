@@ -5,8 +5,10 @@ mini music player
 
 ## 简介
 1.暂时只支持网易云音乐之后添加本地音频
-
 2.暂时不支持手机端（未测试）
+
+## 演示地址
+http://blog.pzroot.com/vsPlayAudio/src/
 
 ## 使用方法
 ```
