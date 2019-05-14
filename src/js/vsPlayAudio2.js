@@ -1,5 +1,5 @@
 import init from "./init.js";
-import Tool from "./Tool.js";
+import Tool from "./tool.js";
 import template from "./template.js";
 import imgMusic from "../img/music.png";
 import "../css/style.css";
