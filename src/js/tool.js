@@ -51,5 +51,15 @@ export default {
         };
         xhr.open('GET', option.url);
         xhr.send(null);
+    },
+    bindEvents: function(selector, handlers){ //绑定事件
+        let el = document.getElementById(selector); //元素
+        for (const event in handlers) {
+            //使用值的时候保证键值对在对象中是存在的
+            if (handlers.hasOwnProperty(event)) {
+                //el.onclick(event, handlers[event]);
+                el.onclick = handlers[event];
+            }
+        }
     }
 };

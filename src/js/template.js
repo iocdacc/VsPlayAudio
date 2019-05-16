@@ -1,4 +1,10 @@
 export default {
+    list:`
+        <li class="vsPlayAudio-list" index={{html_index}}>
+            <span class="vsPlayAudio-name">{{name}}</span>
+            <span class="vsPlayAudio-author">{{author}}</span>
+        </li>
+    `,
     body: `
         <div class="vsPlayAudio-cover" id="vsPlayAudio-cover">
             <div class="vsPlayAudio-cover-box" id="vsPlayAudio-cover-box">
