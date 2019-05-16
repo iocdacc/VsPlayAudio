@@ -1,5 +1,8 @@
 export default function(){
     console.log(
-`vsPlayAudio v0.2.0`
+`vsPlayAudio
+谢谢支持
+Thank you for your support
+`
     )
 }
