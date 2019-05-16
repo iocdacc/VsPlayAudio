@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   //mode: 'development',
-  entry: './src/js/index.js',
+  entry: './src/js/vsPlayAudio.js',
   output: {
     filename: 'vsPlayAudio.min.js',
     path: path.resolve(__dirname, 'dist'),
