@@ -15,7 +15,7 @@ mini music player
 http://blog.pzroot.com/vsPlayAudio/src/
 
 ## 使用方法
-```
+```html
 <head>
 
 <script src="./dist/vsPlayAudio.min.js"></script>
