@@ -29,6 +29,7 @@ http://blog.pzroot.com/vsPlayAudio/src/
 
 ...
 
+<script>
 new vsPlayAudio({
     element: "vsPlayAudio",
     autoPlay: false,//自动播放
@@ -43,5 +44,6 @@ new vsPlayAudio({
     },
     random: false//随机播放
 });
+</script>
 </body> 
 ```
