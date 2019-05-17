@@ -19,6 +19,7 @@ class audioFunction{
     }
 
     initAudioList(){//初始化音频列表
+        if (!this.vsOption.music.source) throw new Error('配置缺失');
         if (this.vsOption.music.type === 'cloud') {
             this.tool.ajax({
                 url: this.vsOption.baseUrl + 'playlist/detail?id=' + this.vsOption.music.source,
@@ -54,6 +55,10 @@ class audioFunction{
                         document.getElementById(this.dom.coverImg).src = this.music.cover;//更新音乐封面
                         document.getElementById(this.dom.coverTitle).innerHTML = this.music.name;//更新音乐名称
                         document.getElementById(this.dom.coverSinger).innerHTML = this.music.author;//更新歌手名称
+                        if (document.querySelectorAll(".vsPlayAudio-control-hover").length > 0) {
+                            document.querySelectorAll(".vsPlayAudio-control-hover")[0].classList.remove("vsPlayAudio-control-hover");
+                        }
+                        document.querySelectorAll(this.dom.coverList)[this.music.html_index].classList.add("vsPlayAudio-control-hover");
                     } else {
                         //console.log('歌曲拉取失败！ 资源无效！');
                         console.log(this.music.name + ' 无版权，或VIP歌曲');
@@ -85,13 +90,17 @@ class audioFunction{
 
         let coverList = document.querySelectorAll(this.dom.coverList);
         for (let index = 0; index < coverList.length; index++) {
-            coverList[index].onclick = this.clickAudio.bind({'_':this,index});
+            coverList[index].onclick = this.clickAudio.bind({'_':this,index,'html_index':coverList[index]});
         }
     }
 
     clickAudio() {
         let _ = this._?this._:this;
         _.music = _.musicVal[this.index]
+        if (document.querySelectorAll(".vsPlayAudio-control-hover").length > 0) {
+            document.querySelectorAll(".vsPlayAudio-control-hover")[0].classList.remove("vsPlayAudio-control-hover");
+        }
+        this.html_index.classList.add("vsPlayAudio-control-hover");
         _.initAudio();
     }
 
@@ -116,16 +125,19 @@ class audioFunction{
             this.music = this.musicVal[this.tool.randomNum(0,(this.musicVal.length - +1))]
             this.initAudio();
         }else{
-            if (this.musicVal.length != 1) {
-                if (this.musicVal.length == this.music.html_index) {
-                    this.music = this.musicVal[0];
-                    this.initAudio();
-                } else {
-                    this.music = this.musicVal[vsthis.nowAudio + +1];
-                    this.initAudio();
-                }
+            if (this.musicVal.length == this.music.html_index) {
+                this.music = this.musicVal[0];
+                this.initAudio();
+            } else {
+                this.music = this.musicVal[this.music.html_index + +1];
+                this.initAudio();
             }
         }
+    }
+
+    go(index) {
+        this.music = index?this.musicVal[index - +1]:this.musicVal[0];
+        this.initAudio();
     }
 
     barStart() {

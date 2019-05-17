@@ -99,6 +99,13 @@
     z-index: 2;
 }
 
+#vsPlayAudio #vsPlayAudio-volume-line {
+    transition: all .3s;
+    -moz-transition: all .3s;	/* Firefox 4 */
+    -webkit-transition: all .3s;	/* Safari 和 Chrome */
+    -o-transition: all .3s;	/* Opera */
+}
+
 #vsPlayAudio .vsPlayAudio-control ul {
     list-style: none;
     margin: 0;

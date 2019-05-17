@@ -44,7 +44,10 @@ class vsPlayAudio{
         //初始化
         this.init();
 
-        //for (const key in this) delete this[key]
+        this.play = this.af.play.bind(this.af);
+        this.pause = this.af.pause.bind(this.af);
+        this.next = this.af.next.bind(this.af);
+        this.go = this.af.go.bind(this.af);
     }
 
     init(){
