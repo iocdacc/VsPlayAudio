@@ -12,7 +12,7 @@ class vsPlayAudio{
         init()
 
         //创建音频对象
-        this.m = new Audio();
+        this.m = document.createElement("AUDIO")
 
         //载入配置
         this.vsOption = option ? option : config.defaultOption;
