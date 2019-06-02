@@ -13,7 +13,8 @@ mini music player
 
 ![](https://github.com/iocdacc/vsPlayAudio/blob/master/demo.PNG?raw=true)
 
-~~http://blog.pzroot.com/vsPlayAudio/src/域名备案中~~
+~~http://blog.pzroot.com/vsPlayAudio/src/~~
+域名备案中
 
 ## 使用方法
 ```html
