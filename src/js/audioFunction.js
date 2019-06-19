@@ -31,8 +31,8 @@ class audioFunction{
                     this.music = (this.vsOption.random == true) ? this.musicVal[this.tool.randomNum(0,(this.musicVal.length - +1))] : this.musicVal[0];//放入第一首歌
                     this.initAudio();//装载音频
                     this.inHtml();//渲染列表
-                    this.m.volume = .8;
-                    document.getElementById(this.dom.coverVolumeLine).style.width = "80%"
+                    this.m.volume = .5;
+                    document.getElementById(this.dom.coverVolumeLine).style.width = "50%"
                 },
                 fail: (status) => {
                     console.error('歌曲拉取失败！ 错误码：' + status);
@@ -194,7 +194,7 @@ class audioFunction{
             this.m.volume = 0;
             coverVolumeIcon.classList.add("volume-off");
         } else {
-            this.m.volume = this.volume ? this.volume : .8;
+            this.m.volume = this.volume ? this.volume : .5;
             coverVolumeIcon.classList.remove("volume-off");
 
         }
