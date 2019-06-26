@@ -1,7 +1,7 @@
 # vsPlayAudio
 
-小体积美观的音乐播放器
-mini music player
+美观的音乐播放器
+music player
 
 ## 简介
 1.暂时不支持手机端（未测试）  
