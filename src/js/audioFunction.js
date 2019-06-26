@@ -170,10 +170,12 @@ class audioFunction{
     clickVolume() {
         let e = event || window.event;
         let coverVolumeLine = document.getElementById(this.dom.coverVolumeLine);
+        let coverVolumeIcon = document.getElementById(this.dom.coverVolumeIcon);
         let coverVolume = document.getElementById(this.dom.coverVolume);
         this.m.volume = ((e.clientX - this.tool.leftDistance(coverVolume)) / coverVolume.clientWidth);
         //console.log(((e.clientX - Tool.leftDistance(this)) / this.clientWidth));
         coverVolumeLine.style.width = this.tool.percentFormat(this.m.volume)
+        coverVolumeIcon.classList.remove("volume-off");
         //vsthis.play();
     }
 
