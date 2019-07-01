@@ -29,7 +29,7 @@ http://demo.iocdacc.com/vsPlayAudio
 ...
 
 <script>
-    new vsPlayAudio({
+    var player = new vsPlayAudio({
         element: "vsPlayAudio",
         autoPlay: false,//自动播放
         music: {
