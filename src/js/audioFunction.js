@@ -27,7 +27,14 @@ class audioFunction{
                     //console.log('正在努力的拉取歌曲 ...');
                 },
                 success: (data) => {
-                    this.musicVal = JSON.parse(data);
+                    let musicVal = JSON.parse(data)
+
+                    if (musicVal.code) {
+                        this.musicVal = musicVal.playlist.tracks
+                    }else{
+                        this.musicVal = musicVal
+                    }
+
                     this.music = (this.vsOption.random == true) ? this.musicVal[this.tool.randomNum(0,(this.musicVal.length - +1))] : this.musicVal[0];//放入第一首歌
                     this.initAudio();//装载音频
                     this.inHtml();//渲染列表
@@ -44,17 +51,25 @@ class audioFunction{
     initAudio() {//初始化音频
         if (this.vsOption.music.type === 'cloud') {
             this.tool.ajax({
-                url: this.vsOption.baseUrl + 'music/url?id=' + this.music.song_id,
+                url: this.vsOption.baseUrl + 'music/url?id=' + (this.music.song_id || this.music.id),
                 beforeSend: () => {
                     //console.log('正在努力的拉取歌曲 ...');
                 },
                 success: (data) => {
-                    let url = JSON.parse(data).url;
+                    let url
+                    let urlData = JSON.parse(data);
+
+                    if (urlData.code) {
+                        url = urlData.data[0].url
+                    }else{
+                        url = urlData.url
+                    }
+
                     if (url !== null) {
                         this.m.src = url;//将当前音频地址载入
-                        document.getElementById(this.dom.coverImg).src = this.music.cover;//更新音乐封面
+                        document.getElementById(this.dom.coverImg).src = this.music.cover || this.music.al.picUrl;//更新音乐封面
                         document.getElementById(this.dom.coverTitle).innerHTML = this.music.name;//更新音乐名称
-                        document.getElementById(this.dom.coverSinger).innerHTML = this.music.author;//更新歌手名称
+                        document.getElementById(this.dom.coverSinger).innerHTML = this.music.author || this.music.ar[0].name;//更新歌手名称
                         if (document.querySelectorAll(".vsPlayAudio-control-hover").length > 0) {
                             document.querySelectorAll(".vsPlayAudio-control-hover")[0].classList.remove("vsPlayAudio-control-hover");
                         }
@@ -141,7 +156,7 @@ class audioFunction{
     }
 
     time() {
-        document.getElementById(this.dom.time).innerHTML = this.tool.timeFormat(this.v.currentTime) + " / " + this.tool.timeFormat(this.v.duration)
+        document.getElementById(this.dom.time).innerHTML = this.tool.timeFormat(this.m.currentTime) + " / " + this.tool.timeFormat(this.m.duration)
     }
 
     barStart() {
@@ -149,13 +164,13 @@ class audioFunction{
         let buff
         //更新进度条和时间
         this.bars = this.bars ? this.bars : (setInterval(() => {
-            if (this.v.readyState && this.v.buffered.end(0) > 0) {
+            if (this.m.readyState && this.m.buffered.end(0) > 0) {
                 this.time()
-                num = this.v.currentTime / this.v.duration
+                num = this.m.currentTime / this.m.duration
 
-                for (let index = 0; index < this.v.buffered.length; index++) {
-                    if (this.v.buffered.start(index) < this.v.currentTime && this.v.currentTime < this.v.buffered.end(index)) {
-                        buff = this.v.buffered.end(index) / this.v.duration
+                for (let index = 0; index < this.m.buffered.length; index++) {
+                    if (this.m.buffered.start(index) < this.m.currentTime && this.m.currentTime < this.m.buffered.end(index)) {
+                        buff = this.m.buffered.end(index) / this.m.duration
                     }
                 }
 

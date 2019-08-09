@@ -12,7 +12,7 @@ export default {
             // ... playlist?id=2778782119
         },
         random: false,
-        baseUrl: 'http://120.79.36.48/'
+        baseUrl: 'https://musicapi.leanapp.cn/'
     },
     dom: (element) => {
         return {
