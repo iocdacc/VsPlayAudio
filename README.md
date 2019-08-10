@@ -30,7 +30,6 @@ http://demo.iocdacc.com/vsPlayAudio
 
 <script>
     var player = new vsPlayAudio({
-    var player = new vsPlayAudio({
         element: "vsPlayAudio",
         autoPlay: false,//自动播放
         random: false,//随机播放
@@ -49,7 +48,6 @@ http://demo.iocdacc.com/vsPlayAudio
         //有条件可以自己搭建解析服务器 软件包：https://binaryify.github.io/NeteaseCloudMusicApi/#/
         //或使用手动指定的方式
         baseUrl: 'http://120.79.36.48/'
-    });
     });
 </script>
 </body> 
