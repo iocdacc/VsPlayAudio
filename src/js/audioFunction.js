@@ -19,37 +19,41 @@ class audioFunction{
     }
 
     initAudioList(){//初始化音频列表
+        let ajaxUrl
         if (!this.vsOption.music.source) throw new Error('配置缺失');
-        if (this.vsOption.music.type === 'cloud') {
-            this.tool.ajax({
-                url: this.vsOption.baseUrl + 'playlist/detail?id=' + this.vsOption.music.source,
-                beforeSend: () => {
-                    //console.log('正在努力的拉取歌曲 ...');
-                },
-                success: (data) => {
-                    let musicVal = JSON.parse(data)
-
-                    if (musicVal.code) {
-                        this.musicVal = musicVal.playlist.tracks
-                    }else{
-                        this.musicVal = musicVal
-                    }
-
-                    this.music = (this.vsOption.random == true) ? this.musicVal[this.tool.randomNum(0,(this.musicVal.length - +1))] : this.musicVal[0];//放入第一首歌
-                    this.initAudio();//装载音频
-                    this.inHtml();//渲染列表
-                    this.m.volume = .5;
-                    document.getElementById(this.dom.coverVolumeLine).style.width = "50%"
-                },
-                fail: (status) => {
-                    console.error('歌曲拉取失败！ 错误码：' + status);
-                }
-            });
+        if (this.vsOption.music.type === 'cloud') {//网易云方式
+            ajaxUrl = this.vsOption.baseUrl + 'playlist/detail?id=' + this.vsOption.music.source
+        }else if(this.vsOption.music.type === 'manual'){//手动指定音频方式
+            ajaxUrl = this.vsOption.music.source
         }
+        this.tool.ajax({
+            url: ajaxUrl,
+            beforeSend: () => {
+                //console.log('正在努力的拉取歌曲 ...');
+            },
+            success: (data) => {
+                let musicVal = JSON.parse(data)
+
+                if (musicVal.code) {
+                    this.musicVal = musicVal.playlist.tracks
+                }else{
+                    this.musicVal = musicVal
+                }
+
+                this.music = (this.vsOption.random == true) ? this.musicVal[this.tool.randomNum(0,(this.musicVal.length - +1))] : this.musicVal[0]//放入第一首歌
+                this.inHtml()//渲染列表
+                this.initAudio()//装载音频
+            },
+            fail: (status) => {
+                console.error('歌曲拉取失败！ 错误码：' + status)
+            }
+        });
+        this.m.volume = .5
+        document.getElementById(this.dom.coverVolumeLine).style.width = "50%"
     }
 
     initAudio() {//初始化音频
-        if (this.vsOption.music.type === 'cloud') {
+        if (this.vsOption.music.type === 'cloud') {//网易云方式
             this.tool.ajax({
                 url: this.vsOption.baseUrl + 'music/url?id=' + (this.music.song_id || this.music.id),
                 beforeSend: () => {
@@ -65,7 +69,7 @@ class audioFunction{
                         url = urlData.url
                     }
 
-                    if (url !== null) {
+                    if (url != null) {
                         this.m.src = url;//将当前音频地址载入
                         document.getElementById(this.dom.coverImg).src = this.music.cover || this.music.al.picUrl;//更新音乐封面
                         document.getElementById(this.dom.coverTitle).innerHTML = this.music.name;//更新音乐名称
@@ -86,12 +90,29 @@ class audioFunction{
                     console.error('歌曲拉取失败！ 错误码：' + status);
                 }
             });
+        }else if(this.vsOption.music.type === 'manual'){//手动指定音频方式
+            if (this.music.url != undefined) {
+                this.m.src = this.music.url;//将当前音频地址载入
+                document.getElementById(this.dom.coverImg).src = this.music.cover;//更新音乐封面
+                document.getElementById(this.dom.coverTitle).innerHTML = this.music.name;//更新音乐名称
+                document.getElementById(this.dom.coverSinger).innerHTML = this.music.author;//更新歌手名称
+                if (document.querySelectorAll(".vsPlayAudio-control-hover").length > 0) {
+                    document.querySelectorAll(".vsPlayAudio-control-hover")[0].classList.remove("vsPlayAudio-control-hover");
+                }
+                document.querySelectorAll(this.dom.coverList)[this.music.html_index].classList.add("vsPlayAudio-control-hover");
+            } else {
+                //console.log('歌曲拉取失败！ 资源无效！');
+                console.log(this.music.name + ' 未设置文件地址');
+                if (this.musicVal.length !== 1) {
+                    this.next();
+                }
+            }
         }
     }
 
     inHtml() {
-        var html = "";
-        var element;
+        var html = ""
+        var element
         for (let index = 0; index < this.musicVal.length; index++) {
             element = this.template.list;
             element = element.replace("{{name}}", this.musicVal[index].name);
