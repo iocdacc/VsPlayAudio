@@ -11,7 +11,7 @@ music player
 
 ![](https://github.com/iocdacc/vsPlayAudio/blob/master/demo.PNG?raw=true)
 
-http://demo.iocdacc.com/vsPlayAudio
+http://demo.iocdacc.com/d/vsPlayAudio
 
 ## 使用方法
 ```html
