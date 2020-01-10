@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vsPlayAudio</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.15.5/styles/androidstudio.min.css">
+    <script src="./js/vsPlayAudio.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+        #nav {
+            text-align: center;
+        }
+        #nav ul li {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 15px 0 15px;
+            border-left: 1px dotted #2bbc8a;
+            line-height: 15px;
+        }
+        #nav ul li a {
+            font-size: .8rem;
+            color: #2bbc8a;
+        }
+        #nav ul .blog {
+            border-left: 0px dotted #2bbc8a;
+        }
+    </style>
+</head>
+
+<body style="width: 500px;margin: 15px auto 0;color: #c9cacc;background-color: #1d1f21;">
+    <div id="nav">
+        <ul>
+            <li class="blog"><a href="//iocdacc.com" target="_blank">Blog</a></li>
+            <li><a href="//github.com/iocdacc" target="_blank">GitHub</a></li>
+        </ul>
+    </div>
+    <div style="text-align: center;font-size: 36px;font-weight: 700;margin: 50px 0 0 0;">
+        <span>vsPlayAudio</span>
+    </div>
+    <div style="text-align: center;font-size: 18px;margin: 50px 0 0 0;">
+        <p style="line-height: 45px;">美观的音乐播放器</p>
+        <p style="line-height: 45px;">music player</p>
+    </div>
+    <div class="clear" style="margin: 50px auto 0;width: 100px;height: 100px;border-radius: 50px;background: #fff;">
+        <div id="vsPlayAudio" style="margin: 12px auto 0;width: 75px;height: 75px;"></div>
+    </div>
+    <div style="text-align: left;margin: 50px 0 0 0;">
+        <h2 style="line-height: 45px;font-size: 24px;">接口</h2>
+        <p style="line-height: 45px;">
+            <button onclick="player.play()">player.play()</button>
+            <button onclick="player.pause()">player.pause()</button>
+            <button onclick="player.next()">player.next()</button>
+            <button onclick="player.go(3)">player.go(3)</button>
+            <button onclick="alert('当前播放的音乐名称：' + player.af.music.name)">player.af.music.name</button>
+            <button onclick="alert('当前播放的音乐歌手：' + player.af.music.author)">player.af.music.author</button>
+            <button onclick="alert('当前播放的音乐src：' + player.af.music.cover)">player.af.music.cover</button>
+            <button onclick="alert('当前播放的音乐id：' + player.af.music.song_id)">player.af.music.song_id</button>
+        </p>
+    </div>
+    <div style="text-align: left;margin: 50px 0 0 0;">
+        <h2 style="line-height: 45px;font-size: 24px;margin-bottom: 10px;">简介</h2>
+        <p style="line-height: 28px;font-size: 16px;margin-bottom: 10px;">1.暂时不支持手机端（未测试）</p>
+        <p style="line-height: 28px;font-size: 16px;margin-bottom: 10px;">2.W3C关于自动播放的政策，Chrome v66版本开始限制了单位时间内打开网页时自动播放的次数。超过次数时自动播放会报错，手动开始播放正常。</p>
+    </div>
+    <div style="text-align: left;margin: 50px 0 0 0;">
+            <h2 style="line-height: 45px;font-size: 24px;">使用方法</h2>
+            <pre>
+                <code>&#60;head&#62;
+
+&#60;script src="./dist/vsPlayAudio.min.js"&#62;&#60;&#47;script&#62;
+
+&#60;&#47;head&#62;
+&#60;body&#62;
+
+...
+
+&#60;div id="vsPlayAudio"&#62;&#60;&#47;div&#62;
+
+...
+&#60;script&#62;
+    var player = new vsPlayAudio({
+        element: "vsPlayAudio",
+        autoPlay: false,//自动播放
+        random: false,//随机播放
+        music: {
+            //必需项,音乐配置
+            type: 'manual',
+            //必需项,网易云方式指定填'cloud',手动指定方式'manual'
+            source: './source.json'
+            //必需项,网易云音乐歌单id
+            //登录网易云网页版,在网页地址中拿到
+            // ... playlist?id=2778782119
+            //当使用手动指定时,此为文件信息的JSON,当文件非同源注意对方是否开启跨域
+            //JSON结构请看demo/source.json文件
+        },
+        //解析服务器 https://musicapi.leanapp.cn/  http://120.79.36.48/
+        //需要自己搭建 提供的两个都是私人的 随时可能停用
+        //有条件可以自己搭建解析服务器 软件包：https://binaryify.github.io/NeteaseCloudMusicApi/#/
+        //或使用手动指定的方式
+        baseUrl: 'http://120.79.36.48/'
+    });
+&#60;&#47;script&#62;
+&#60;&#47;body&#62;</code>
+            </pre>
+        </div>
+    <script>
+        var player = new vsPlayAudio({
+            random: true,
+            music: {
+                type: 'manual',
+                source: '/source.json'
+            }
+        });
+    </script>
+</body>
+
+</html>

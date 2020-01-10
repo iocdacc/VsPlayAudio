@@ -172,7 +172,11 @@ class audioFunction{
     }
 
     go(index) {
-        this.music = index?this.musicVal[index - +1]:this.musicVal[0];
+        if (this.musicVal[index - +1]) {
+            this.music = this.musicVal[index - +1]
+        }else{
+            this.music = this.musicVal[0];
+        }
         this.initAudio();
     }
 
