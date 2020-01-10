@@ -5,7 +5,7 @@ music player
 
 ## 简介
 1.暂时不支持手机端（未测试）  
-2.W3C关于自动播放的政策 Chrome v66版本开始限制了单位时间内打开同一网页时自动播放的次数 超过次数时自动播放会报错 手动开始播放正常
+2.在高版本浏览器自动播放已经凉了（谁也不想晚上被奇怪网页上的声音吓到）<s>W3C关于自动播放的政策，Chrome v66版本开始限制了单位时间内打开网页时自动播放的次数。超过次数时自动播放会报错，手动开始播放正常。</s>
 
 ## 演示地址
 
@@ -32,7 +32,6 @@ https://iocdacc.github.io/vsPlayAudio
 <script>
     var player = new vsPlayAudio({
         element: "vsPlayAudio",
-        autoPlay: false,//自动播放
         random: false,//随机播放
         music: {
             //必需项,音乐配置
