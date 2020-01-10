@@ -1,20 +1,20 @@
 [
     {
         "name": "夏の喚く",
-        "cover": "/data/18215609137826245.jpg",
+        "cover": "./data/18215609137826245.jpg",
         "author": "邱有句",
-        "url": "/data/c2f2_ddf9_e27b_d7cff87ae5bfdb72fe398bef87549a1a.mp3"
+        "url": "./data/c2f2_ddf9_e27b_d7cff87ae5bfdb72fe398bef87549a1a.mp3"
     },
     {
         "name": "星茶会",
-        "cover": "/data/109951162981239981.jpg",
+        "cover": "./data/109951162981239981.jpg",
         "author": "灰澈",
-        "url": "/data/2d31_cbe1_b405_9694012993255d512f94cb24e8d760bd.mp3"
+        "url": "./data/2d31_cbe1_b405_9694012993255d512f94cb24e8d760bd.mp3"
     },
     {
         "name": "夏鸣",
-        "cover": "/data/109951162916977589.jpg",
+        "cover": "./data/109951162916977589.jpg",
         "author": "邱有句",
-        "url": "/data/3769_6fb8_5936_4e4025289a55b0f35d4fcd0f6698757c.mp3"
+        "url": "./data/3769_6fb8_5936_4e4025289a55b0f35d4fcd0f6698757c.mp3"
     }
 ]
