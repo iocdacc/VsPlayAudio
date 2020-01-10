@@ -9,9 +9,10 @@ music player
 
 ## 演示地址
 
+https://iocdacc.github.io/vsPlayAudio
+
 ![](https://github.com/iocdacc/vsPlayAudio/blob/master/demo.PNG?raw=true)
 
-http://demo.iocdacc.com/d/vsPlayAudio
 
 ## 使用方法
 ```html
