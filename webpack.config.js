@@ -1,12 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  //mode: 'development',
+  mode: 'production',
   entry: './src/js/vsPlayAudio.js',
   output: {
     filename: 'vsPlayAudio.min.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'vsPlayAudio',
+    libraryExport: 'default',
     libraryTarget: 'umd'
   },
   devServer: {

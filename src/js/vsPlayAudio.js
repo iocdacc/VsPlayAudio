@@ -106,4 +106,4 @@ class vsPlayAudio{
 }
 
 
-module.exports = vsPlayAudio;
+export default vsPlayAudio;
