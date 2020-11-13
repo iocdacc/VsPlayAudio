@@ -1,4 +1,4 @@
-# vsPlayAudio
+# VsPlayAudio
 
 美观的音乐播放器
 music player
