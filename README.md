@@ -9,7 +9,7 @@ music player
 
 ## 演示地址
 
-https://iocdacc.github.io/vsPlayAudio
+https://iocdacc.github.io/VsPlayAudio
 
 ![](https://github.com/iocdacc/vsPlayAudio/blob/master/demo.PNG?raw=true)
 
